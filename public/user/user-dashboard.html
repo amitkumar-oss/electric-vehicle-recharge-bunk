@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/user-dashboard.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+   
+    <!-- Header -->
+    <header class="ev-header">
+        <div class="header-container">
+            <div class="header-brand">
+                <div class="header-icon">⚡</div>
+                <a href="../index.html"><h1 class="header-title">EV Charging Hub</h1></a>
+            </div>
+            <div class="header-user">
+                <div class="user-avatar">W</div>
+                <div class="user-info">
+                    <h3>Welcome</h3>
+                    <p id="showUserEmail"></p>
+                </div>
+                <button id="logoutBtn" class="logout-btn">log out</button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-section">
+        <div class="nav-container">
+            <div class="nav-grid">
+                <div class="nav-item active" data-section="overview">
+                    <div class="nav-icon">📊</div>
+                    <div class="nav-content">
+                        <h3>Dashboard Overview</h3>
+                        <p>Quick access to all features</p>
+                    </div>
+                </div>
+                <div class="nav-item" data-section="book-slot">
+                    <div class="nav-icon">📅</div>
+                    <div class="nav-content">
+                        <h3>Book Slot</h3>
+                        <p>Reserve your charging time</p>
+                    </div>
+                </div>
+                <div class="nav-item" data-section="my-bookings">
+                    <div class="nav-icon">📋</div>
+                    <div class="nav-content">
+                        <h3>My Bookings</h3>
+                        <p>View and manage reservations</p>
+                    </div>
+                </div>
+                <div class="nav-item" data-section="search-bunks">
+                    <div class="nav-icon">🔍</div>
+                    <div class="nav-content">
+                        <h3>Search Stations</h3>
+                        <p>Find charging stations nearby</p>
+                    </div>
+                </div>
+                <div class="nav-item" data-section="view-slots">
+                    <div class="nav-icon">🕒</div>
+                    <div class="nav-content">
+                        <h3>Check Availability</h3>
+                        <p>View real-time slot status</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Dashboard Overview Section -->
+        <section id="overview" class="content-section active">
+            <div class="ev-card">
+                <div class="card-header">
+                    <div class="card-icon">📈</div>
+                    <h2 class="card-title">Dashboard Overview</h2>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>📅</span>
+                            Active Bookings
+                        </div>
+                        <div class="stat-value" style="color: #3b82f6;">2</div>
+                        <div class="stat-description">Currently reserved slots</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>📊</span>
+                            Total Sessions
+                        </div>
+                        <div class="stat-value" style="color: #10b981;">15</div>
+                        <div class="stat-description">Completed charging sessions</div>
+                    </div>
+
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="btn btn-primary btn-large" onclick="showSection('book-slot')">
+                            <span>📅</span>
+                            Book New Slot
+                        </button>
+                        <button class="btn btn-secondary btn-large" onclick="showSection('search-bunks')">
+                            <span>🔍</span>
+                            Find Stations
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Slot Section -->
+        <section id="book-slot" class="content-section">
+            <div class="ev-card">
+                <div class="card-header">
+                    <div class="card-icon">📅</div>
+                    <h2 class="card-title">Book a Recharge Slot</h2>
+                </div>
+
+                <form id="bookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="name">User Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="vehicleNumber">Vehicle Number</label>
+                            <input type="text" id="vehicleNumber" class="form-control" placeholder="e.g., MH12AB1234"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="station">Select Station</label>
+                            <select id="station" class="form-control" required>
+                                <option value="">Select Station</option>
+                                <!-- <option value="1">Downtown EV Hub - 123 Main Street, Downtown Area</option>
+                                <option value="2">Shopping Mall Station - City Mall, Level B1 Parking</option>
+                                <option value="3">Airport Charging Point - International Airport, Terminal 2</option> -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="slotDate">Select Date</label>
+                            <select id="slotDate" class="form-control" required>
+                                <option value="">Select Date</option>
+                              
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label class="form-label" for="slotTime">Select Time Slot</label>
+                            <select id="slotTime" class="form-control" required>
+                                <option value="">Please select station and date first</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full btn-large">
+                        <span>📅</span>
+                        Book Slot
+                    </button>
+                </form>
+                
+            </div>
+        </section>
+
+        <!-- My Bookings Section -->
+        <section id="my-bookings" class="content-section">
+            <div class="ev-card">
+                <div class="card-header">
+                    <div class="card-icon">📋</div>
+                    <h2 class="card-title">My Bookings</h2>
+                </div>
+
+                <div class="booking-card">
+                    <div id="bookingsContainer"></div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+
+        <!-- Search Stations Section -->
+
+        <section id="search-bunks" class="content-section">
+            <div class="ev-card">
+                <div class="card-header">
+                    <div class="card-icon">🔍</div>
+                    <h2 class="card-title">Search EV Recharge Stations</h2>
+                </div>
+
+                <div class="flex gap-4 mb-6">
+                    <input type="text" id="searchInput" class="form-control"
+                        placeholder="Enter station name, city, or location" style="flex: 1;">
+                    <button class="btn btn-primary" onclick="searchStations()">
+                        <span>🔍</span>
+                        Search
+                    </button>
+                </div>
+
+                <div class="results-grid" id="searchResults">
+                    <div class="result-card">
+                        <div id="results"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- View Slots Section -->
+         
+        <section id="view-slots" class="content-section">
+            <div class="ev-card">
+                <div class="card-header">
+                    <div class="card-icon">🕒</div>
+                    <h2 class="card-title">Check Slot Availability</h2>
+                </div>
+
+                <form id="checkForm" class="mb-6">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="station">Select Station</label>
+                            <input type="text" id="station" class="form-control" placeholder="Enter station name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="date">Select Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <span>🔍</span>
+                        Check Availability
+                    </button>
+                </form>
+
+                <div id="slotResults">
+                    <h3 class="mb-4">Available Time Slots</h3>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div id="result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Confirmation Modal -->
+
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        // Navigation functionality
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Update navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            const activeNavItem = document.querySelector(`[data-section="${sectionId}"]`);
+            if (activeNavItem) {
+                activeNavItem.classList.add('active');
+            }
+        }
+
+        // Add click events to navigation items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const section = item.getAttribute('data-section');
+                showSection(section);
+            });
+        });
+
+        // Add enter key support for search
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchStations();
+            }
+        });
+    </script>
+
+
+
+    <script type="module" src="../assets/js/user-dashboard-script.js"></script>
+    <script type="module" src="../assets/js/firebase.js"></script>
+    <script type="module" src="../assets/js/user-view-bookings.js"></script>
+    <script type="module" src="../assets/js/user-booking.js"></script>
+    <script type="module" src="../assets/js/search-bunks.js"></script>
+    <script type="module" src="../assets/js/view-slots.js"></script>
+
+</body>
+
+</html>

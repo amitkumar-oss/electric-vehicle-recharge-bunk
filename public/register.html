@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/login-register.css">
+    <title>Register - EV Recharge Bunk</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="brand-section">
+                <div class="logo">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" stroke="#00D4AA" stroke-width="4" />
+                        <path d="M20 25H40V35H35L32 45H28L25 35H20V25Z" fill="#00D4AA" />
+                        <rect x="22" y="15" width="16" height="4" rx="2" fill="#00D4AA" />
+                    </svg>
+                </div>
+                <h1 class="brand-title">EV Recharge Bunk</h1>
+                <p class="brand-subtitle">Power Your Journey</p>
+            </div>
+
+            <div class="form-section">
+                <h2 class="form-title">Join Us Today</h2>
+                <p class="form-subtitle">Create your account to get started</p>
+
+                <form id="registerForm" class="auth-form">
+                    <div class="input-group">
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                        <label for="name">Full Name</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="regEmail" placeholder="Enter your email" required>
+                        <label for="regEmail">Email Address</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="regPassword" placeholder="Create a password" required>
+                        <label for="regPassword">Password</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+                        <label for="mobile">Mobile Number</label>
+                    </div>
+
+                    <div class="input-group">
+                        <select id="role" required>
+                            <option value="">Select your role</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <label for="role">Role</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">Create Account</span>
+                        <div class="btn-loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="login.html" class="link">Sign In</a></p>
+                        <p><a href="index.html" style="color: rgb(11, 83, 190)">Back to home</a></p>
+                    </div>
+                </form>
+
+                <div id="regMsg" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./assets/js/firebase.js"></script>
+    <script type="module" src="./assets/js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/login-register.css">
+    <title>Login - EV Recharge Bunk</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="brand-section">
+                <div class="logo">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" stroke="#00D4AA" stroke-width="4" />
+                        <path d="M20 25H40V35H35L32 45H28L25 35H20V25Z" fill="#00D4AA" />
+                        <rect x="22" y="15" width="16" height="4" rx="2" fill="#00D4AA" />
+                    </svg>
+                </div>
+                <h1 class="brand-title">EV Recharge Bunk</h1>
+                <p class="brand-subtitle">Power Your Journey</p>
+            </div>
+
+            <div class="form-section">
+                <h2 class="form-title">Welcome Back</h2>
+                <p class="form-subtitle">Sign in to your account</p>
+
+                <form id="loginForm" class="auth-form">
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <label for="password">Password</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">Sign In</span>
+                        <div class="btn-loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+
+                    <div class="form-footer">
+                        <p>New to EV Recharge Bunk? <a href="register.html" class="link">Create Account</a></p><br>
+                        <p><a href="index.html" style="color: rgb(11, 83, 190);">Back to home</a></p>
+                    </div>
+                </form>
+
+                <div id="errorMsg" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/EV-recharge-bunk/public/assets/js/firebase.js"></script>
+    <script type="module" src="/EV-recharge-bunk/public/assets/js/auth.js"></script>
+</body>
+
+</html>
