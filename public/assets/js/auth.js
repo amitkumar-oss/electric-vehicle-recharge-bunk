@@ -1,5 +1,4 @@
 import { auth,db } from './firebase.js';
-// import { auth,db } from '../js/firebase.js';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 import{doc,setDoc ,getDoc} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     } else if (role === "user") {
                         alert("user login successfull")
-                        window.location.href = "user-dashboard.html";
+                        window.location.href = "./user/user-dashboard.html";
                     } else {
                         alert("unknown")
                         await auth.signOut();
